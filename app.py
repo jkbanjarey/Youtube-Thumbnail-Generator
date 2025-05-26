@@ -17,6 +17,14 @@ if st.button("Generate Thumbnail"):
 
         with st.spinner("Generating image..."):
             image_bytes = generate_image(prompt)
-        
+
         st.image(image_bytes, caption="AI-Generated Thumbnail", use_column_width=True)
         st.success("Thumbnail generated successfully!")
+
+        # 🎯 Add download button
+        st.download_button(
+            label="📥 Download Thumbnail",
+            data=image_bytes,
+            file_name="youtube_thumbnail.png",
+            mime="image/png"
+        )
